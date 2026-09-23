@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Parviz Moin (پرویز معین)">
+<meta name="creator" content="Parviz Moin">
+<meta name="copyright" content="© 1403 Parviz Moin. All rights reserved.">
+<meta name="description" content="دکترین ملی تاب‌آوری اقتصادی سپر هوشمند — پدیدآورنده: پرویز معین">
+<title>سپر هوشمند | از واکنش به پیش‌بینی | پرویز معین</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,5 95,25 95,75 50,95 5,75 5,25' fill='%230a0a0a'/%3E%3Cpath d='M50 25 L70 35 L70 65 L50 75 L30 65 L30 35 Z' fill='%23ffffff'/%3E%3Ccircle cx='50' cy='50' r='4' fill='%23dc2626'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* =============================================================
+   SPER-E HOOSHMAND — SIMORGH SHIELD v3.0
+   Author: Parviz Moin (پرویز معین)
+   © 1403 All rights reserved
+   ============================================================= */
+
+:root {
+  /* Neutral */
+  --white: #ffffff;
+  --gray-50: #fafafa;
+  --gray-100: #f5f5f5;
+  --gray-200: #e5e5e5;
+  --gray-300: #d4d4d4;
+  --gray-400: #a3a3a3;
+  --gray-500: #737373;
+  --gray-600: #525252;
+  --gray-700: #404040;
+  --gray-800: #262626;
+  --gray-900: #171717;
+  --black: #0a0a0a;
+
+  /* Motif */
+  --crimson: #dc2626;
+  --crimson-dark: #b91c1c;
+  --crimson-light: #ef4444;
+  --navy: #1e3a8a;
+  --navy-light: #3b82f6;
+  --blue: #2563eb;
+  --blue-light: #60a5fa;
+  --yellow: #facc15;
+  --yellow-light: #fde047;
+  --yellow-dark: #eab308;
+
+  /* Semantic */
+  --bg: var(--white);
+  --bg-alt: var(--gray-100);
+  --bg-card: var(--white);
+  --text: var(--black);
+  --text-soft: var(--gray-600);
+  --text-muted: var(--gray-400);
+  --border: var(--gray-200);
+  --border-strong: var(--gray-900);
+
+  /* Fonts */
+  --font-display: 'Space Grotesk', 'Inter', 'Vazirmatn', system-ui, sans-serif;
+  --font-body: 'Inter', 'Vazirmatn', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Layout */
+  --container: 1400px;
+  --gutter: 32px;
+  --radius-sm: 4px;
+  --radius: 8px;
+  --radius-lg: 16px;
+  --radius-full: 999px;
+
+  /* Spacing */
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px;
+  --s5: 24px; --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+
+  /* Transition */
+  --t-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --t-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Shadows */
+  --shadow-brutal: 4px 4px 0 var(--black);
+  --shadow-brutal-lg: 6px 6px 0 var(--black);
+  --shadow-soft: 0 2px 8px rgba(10,10,10,0.08);
+}
+
+[data-theme="dark"] {
+  --bg: var(--black);
+  --bg-alt: var(--gray-900);
+  --bg-card: var(--gray-800);
+  --text: var(--gray-50);
+  --text-soft: var(--gray-300);
+  --text-muted: var(--gray-500);
+  --border: var(--gray-700);
+  --border-strong: var(--gray-100);
+  --crimson: var(--crimson-light);
+  --navy: var(--navy-light);
+  --blue: var(--blue-light);
+  --yellow: var(--yellow-light);
+  --shadow-brutal: 4px 4px 0 var(--crimson);
+  --shadow-brutal-lg: 6px 6px 0 var(--crimson);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  min-height: 100vh;
+  transition: background var(--t-base), color var(--t-base);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+body[dir="rtl"] { font-family: 'Vazirmatn', var(--font-body); }
+img, svg { display: block; max-width: 100%; height: auto; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+::selection { background: var(--crimson); color: var(--white); }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--gray-100); }
+[data-theme="dark"] ::-webkit-scrollbar-track { background: var(--gray-900); }
+::-webkit-scrollbar-thumb { background: var(--gray-400); border: 2px solid var(--gray-100); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--crimson); }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+h1 { font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; }
+h2 { font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 800; }
+h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); font-weight: 700; }
+h4 { font-size: 1.125rem; font-weight: 600; }
+.mono { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; }
+
+.container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); }
+@media (max-width: 768px) { .container { padding: 0 16px; } }
+
+/* ===== TOP BAR ===== */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  transition: background var(--t-base), border-color var(--t-base);
+}
+.topbar::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--crimson) 0%, var(--crimson) 25%, var(--navy) 25%, var(--navy) 50%, var(--blue) 50%, var(--blue) 75%, var(--yellow) 75%, var(--yellow) 100%);
+}
+.topbar-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: var(--s4); }
+.brand { display: flex; align-items: center; gap: var(--s3); flex-shrink: 0; }
+.brand-logo { width: 40px; height: 40px; flex-shrink: 0; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+.brand-name { font-family: var(--font-display); font-size: 1.125rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text); }
+.brand-tagline { font-family: var(--font-mono); font-size: 0.625rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); }
+.nav-main { display: flex; align-items: center; gap: var(--s1); background: var(--gray-100); padding: 6px; border-radius: var(--radius-full); border: 1px solid var(--border); }
+[data-theme="dark"] .nav-main { background: var(--gray-900); }
+.nav-btn { padding: 8px 18px; border-radius: var(--radius-full); font-family: var(--font-body); font-size: 0.875rem; font-weight: 500; color: var(--text-soft); transition: all var(--t-fast); white-space: nowrap; cursor: pointer; }
+.nav-btn:hover { color: var(--text); background: var(--bg); }
+.nav-btn.active { background: var(--black); color: var(--white); }
+[data-theme="dark"] .nav-btn.active { background: var(--white); color: var(--black); }
+.topbar-actions { display: flex; align-items: center; gap: var(--s2); flex-shrink: 0; }
+.icon-btn { width: 40px; height: 40px; border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; border: 1.5px solid var(--border-strong); color: var(--text); transition: all var(--t-fast); cursor: pointer; background: var(--bg); }
+.icon-btn:hover { background: var(--crimson); color: var(--white); border-color: var(--crimson); transform: translate(-2px, -2px); box-shadow: 2px 2px 0 var(--yellow); }
+.icon-btn svg { width: 18px; height: 18px; stroke-width: 2; }
+.lang-btn { padding: 8px 14px; border-radius: var(--radius-full); border: 1.5px solid var(--border-strong); font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; background: var(--bg); color: var(--text); transition: all var(--t-fast); cursor: pointer; }
+.lang-btn:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+@media (max-width: 1024px) { .nav-main { display: none; } }
+@media (max-width: 640px) { .brand-tagline { display: none; } .brand-name { font-size: 1rem; } .topbar-inner { height: 64px; } }
+
+/* ===== HERO ===== */
+.hero { padding: var(--s9) 0 var(--s8); border-bottom: 1px solid var(--border); position: relative; overflow: hidden; background: var(--bg); }
+.hero::before { content: 'SYS.03'; position: absolute; top: var(--s6); left: var(--gutter); font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; color: var(--text-muted); }
+.hero::after { content: '1403/07/02'; position: absolute; top: var(--s6); right: var(--gutter); font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; color: var(--crimson); }
+.hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--s8); align-items: center; }
+@media (max-width: 968px) { .hero-grid { grid-template-columns: 1fr; gap: var(--s6); } }
+.hero-mega { font-family: var(--font-display); font-size: clamp(4rem, 13vw, 11rem); font-weight: 900; line-height: 0.85; letter-spacing: -0.06em; text-transform: uppercase; margin-bottom: var(--s5); display: flex; flex-direction: column; }
+.hero-mega .word-1 { color: var(--crimson); }
+.hero-mega .word-2 { color: var(--navy); }
+[data-theme="dark"] .hero-mega .word-2 { color: var(--blue); }
+.hero-meta { display: flex; align-items: center; gap: var(--s4); margin-bottom: var(--s5); }
+.hero-meta-line { width: 48px; height: 2px; background: var(--yellow); }
+.hero-meta-text { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-soft); }
+.hero-desc { font-size: 1.05rem; line-height: 1.75; color: var(--text-soft); max-width: 560px; margin-bottom: var(--s5); }
+.hero-actions { display: flex; gap: var(--s3); flex-wrap: wrap; margin-bottom: var(--s6); }
+
+/* Hero Author Signature */
+.hero-signature {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s3);
+  padding: 12px 20px;
+  border: 1.5px solid var(--border);
+  border-right: 4px solid var(--crimson);
+  border-radius: var(--radius);
+  background: var(--gray-50);
+  margin-top: var(--s5);
+}
+[data-theme="dark"] .hero-signature { background: var(--gray-900); }
+.hero-signature-icon {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.hero-signature-info { display: flex; flex-direction: column; line-height: 1.3; }
+.hero-signature-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--crimson);
+  text-transform: uppercase;
+}
+.hero-signature-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.hero-signature-title {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ===== BUTTONS ===== */
+.btn { display: inline-flex; align-items: center; gap: var(--s2); padding: 14px 28px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.02em; border-radius: var(--radius); transition: all var(--t-fast); cursor: pointer; white-space: nowrap; border: 1.5px solid var(--black); background: var(--black); color: var(--white); }
+[data-theme="dark"] .btn { border-color: var(--white); background: var(--white); color: var(--black); }
+.btn:hover { transform: translate(-3px, -3px); box-shadow: 3px 3px 0 var(--crimson); }
+.btn-primary { background: var(--crimson); color: var(--white); border-color: var(--crimson); }
+.btn-primary:hover { box-shadow: 3px 3px 0 var(--navy); }
+.btn-navy { background: var(--navy); color: var(--white); border-color: var(--navy); }
+.btn-navy:hover { box-shadow: 3px 3px 0 var(--yellow); }
+.btn-outline { background: transparent; color: var(--text); border-color: var(--border-strong); }
+.btn-outline:hover { background: var(--text); color: var(--bg); box-shadow: 3px 3px 0 var(--yellow); }
+.btn svg { width: 16px; height: 16px; stroke-width: 2.5; }
+
+/* ===== HERO VISUAL ===== */
+.hero-visual { position: relative; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; background: var(--gray-100); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+[data-theme="dark"] .hero-visual { background: var(--gray-900); }
+.hero-visual::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(var(--gray-200) 1px, transparent 1px), linear-gradient(90deg, var(--gray-200) 1px, transparent 1px); background-size: 32px 32px; opacity: 0.6; }
+[data-theme="dark"] .hero-visual::before { background-image: linear-gradient(var(--gray-700) 1px, transparent 1px), linear-gradient(90deg, var(--gray-700) 1px, transparent 1px); }
+.hero-shield { position: relative; z-index: 1; width: 60%; max-width: 320px; filter: drop-shadow(0 0 40px rgba(220,38,38,0.25)); animation: shield-float 6s ease-in-out infinite; }
+@keyframes shield-float { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-12px) rotate(1deg); } }
+.hero-visual-label { position: absolute; bottom: var(--s4); left: var(--s4); right: var(--s4); display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.65rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); }
+.hero-visual-code { position: absolute; top: var(--s4); right: var(--s4); font-family: var(--font-mono); font-size: 0.65rem; font-weight: 500; letter-spacing: 0.15em; color: var(--crimson); }
+
+/* ===== SECTIONS ===== */
+.section-header { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--s4); margin-bottom: var(--s7); padding-bottom: var(--s4); border-bottom: 1px solid var(--border); }
+.section-header-left { display: flex; align-items: center; gap: var(--s4); }
+.section-num { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; color: var(--crimson); padding: 4px 10px; border: 1.5px solid var(--crimson); border-radius: var(--radius-sm); }
+.section-title { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; letter-spacing: -0.02em; }
+.section-subtitle { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); text-align: left; }
+@media (max-width: 640px) { .section-subtitle { display: none; } }
+
+/* ===== KPI CARDS ===== */
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--s5); }
+.kpi-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--s6); position: relative; overflow: hidden; transition: all var(--t-base); cursor: pointer; }
+.kpi-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--crimson); transform: scaleX(0); transform-origin: left; transition: transform var(--t-base); }
+.kpi-card:nth-child(2)::before { background: var(--navy); }
+.kpi-card:nth-child(3)::before { background: var(--blue); }
+.kpi-card:nth-child(4)::before { background: var(--yellow); }
+.kpi-card:hover { transform: translate(-4px, -4px); box-shadow: 6px 6px 0 var(--border-strong); }
+.kpi-card:hover::before { transform: scaleX(1); }
+.kpi-label { font-family: var(--font-mono); font-size: 0.65rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-bottom: var(--s3); }
+.kpi-value { font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; line-height: 1; letter-spacing: -0.04em; color: var(--navy); margin-bottom: var(--s2); }
+[data-theme="dark"] .kpi-value { color: var(--blue-light); }
+.kpi-value .unit { font-size: 0.4em; font-weight: 500; color: var(--crimson); margin-right: 4px; }
+.kpi-desc { font-size: 0.85rem; color: var(--text-soft); line-height: 1.5; }
+.kpi-footer { display: flex; align-items: center; justify-content: space-between; margin-top: var(--s4); padding-top: var(--s4); border-top: 1px solid var(--border); }
+.kpi-status { font-family: var(--font-mono); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--crimson); }
+.kpi-index { font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.1em; }
+
+/* ===== COMPARISON ===== */
+.comparison-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: var(--s5); align-items: stretch; }
+@media (max-width: 968px) { .comparison-grid { grid-template-columns: 1fr; } }
+.comp-side { background: var(--gray-50); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--s6); }
+[data-theme="dark"] .comp-side { background: var(--gray-900); }
+.comp-side.old { border-top: 4px solid var(--gray-400); }
+.comp-side.new { border-top: 4px solid var(--crimson); }
+.comp-side-header { display: flex; align-items: center; gap: var(--s3); margin-bottom: var(--s5); padding-bottom: var(--s4); border-bottom: 1px solid var(--border); }
+.comp-side-num { font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; color: var(--text-muted); }
+.comp-side.new .comp-side-num { color: var(--crimson); }
+.comp-side-title { font-size: 1.125rem; font-weight: 700; color: var(--text); }
+.comp-list { display: flex; flex-direction: column; gap: var(--s3); }
+.comp-item { display: flex; align-items: flex-start; gap: var(--s3); padding: var(--s3); background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); font-size: 0.9rem; line-height: 1.5; transition: all var(--t-fast); }
+.comp-item:hover { transform: translateX(-4px); border-color: var(--crimson); }
+.comp-item-icon { width: 20px; height: 20px; flex-shrink: 0; border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; margin-top: 2px; }
+.comp-item-icon.old { background: var(--gray-300); color: var(--text); }
+.comp-item-icon.new { background: var(--crimson); color: var(--white); }
+.comp-arrow { display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--yellow); font-weight: 700; }
+@media (max-width: 968px) { .comp-arrow { transform: rotate(90deg); padding: var(--s3) 0; } }
+
+/* ===== TABLE ===== */
+.table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--bg-card); }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+thead { background: var(--navy); color: var(--white); }
+th { padding: var(--s4) var(--s5); text-align: right; font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; white-space: nowrap; border-bottom: 1.5px solid var(--navy); }
+td { padding: var(--s4) var(--s5); border-bottom: 1px solid var(--border); text-align: right; line-height: 1.6; color: var(--text-soft); }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr { transition: background var(--t-fast); }
+tbody tr:hover { background: var(--gray-50); }
+[data-theme="dark"] tbody tr:hover { background: var(--gray-900); }
+.tag { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: var(--radius-full); font-family: var(--font-mono); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.05em; white-space: nowrap; }
+.tag-green { background: rgba(22,163,74,0.12); color: #16a34a; }
+.tag-blue { background: rgba(37,99,235,0.12); color: var(--blue); }
+.tag-navy { background: rgba(30,58,138,0.12); color: var(--navy); }
+.tag-red { background: rgba(220,38,38,0.12); color: var(--crimson); }
+
+/* ===== PROGRESS ===== */
+.progress-section { background: var(--gray-50); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--s6); }
+[data-theme="dark"] .progress-section { background: var(--gray-900); }
+.progress-item { margin-bottom: var(--s5); }
+.progress-item:last-child { margin-bottom: 0; }
+.progress-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: var(--s3); }
+.progress-label { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-soft); }
+.progress-value { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--crimson); }
+.progress-track { height: 12px; background: var(--bg); border: 1px solid var(--border-strong); border-radius: var(--radius-full); overflow: hidden; }
+.progress-fill { height: 100%; background: var(--crimson); border-radius: var(--radius-full); transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1); }
+.progress-item:nth-child(2) .progress-fill { background: var(--navy); }
+.progress-item:nth-child(3) .progress-fill { background: var(--blue); }
+
+/* ===== LAYERS ===== */
+.layers-grid { display: flex; flex-direction: column; gap: var(--s4); }
+.layer-card { display: grid; grid-template-columns: 80px 1fr auto; gap: var(--s5); align-items: center; padding: var(--s5); background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); transition: all var(--t-base); cursor: pointer; }
+.layer-card:hover { transform: translateX(-6px); border-color: var(--crimson); box-shadow: -6px 6px 0 var(--yellow); }
+.layer-num { font-family: var(--font-display); font-size: 3rem; font-weight: 900; line-height: 1; letter-spacing: -0.04em; color: var(--crimson); }
+.layer-card:nth-child(2) .layer-num { color: var(--navy); }
+.layer-card:nth-child(3) .layer-num { color: var(--blue); }
+.layer-card:nth-child(4) .layer-num { color: var(--yellow-dark); }
+.layer-card:nth-child(5) .layer-num { color: var(--crimson-dark); }
+.layer-info h4 { font-size: 1.125rem; margin-bottom: 4px; color: var(--text); }
+.layer-info p { font-size: 0.875rem; color: var(--text-soft); line-height: 1.5; }
+.layer-tag { font-family: var(--font-mono); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 12px; border: 1px solid var(--border); border-radius: var(--radius-full); color: var(--text-soft); }
+@media (max-width: 768px) { .layer-card { grid-template-columns: 60px 1fr; } .layer-num { font-size: 2rem; } .layer-tag { display: none; } }
+
+/* ===== ARTICLE ===== */
+.article { padding: var(--s5); background: var(--gray-50); border-right: 4px solid var(--crimson); border-radius: var(--radius); margin-bottom: var(--s4); }
+[data-theme="dark"] .article { background: var(--gray-900); }
+.article-num { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; color: var(--crimson); margin-bottom: var(--s2); }
+.article h4 { font-size: 1.05rem; margin-bottom: var(--s2); color: var(--text); }
+.article p { font-size: 0.9rem; line-height: 1.75; color: var(--text-soft); }
+
+.content-block { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--s6); margin-bottom: var(--s5); }
+.content-block h3 { font-size: 1.5rem; margin-bottom: var(--s4); padding-bottom: var(--s3); border-bottom: 2px solid var(--crimson); display: inline-block; }
+
+/* ===== CHAPTER ===== */
+.chapter { padding: var(--s7); background: var(--gray-50); border: 1px solid var(--border); border-radius: var(--radius-lg); position: relative; overflow: hidden; }
+[data-theme="dark"] .chapter { background: var(--gray-900); }
+.chapter::before { content: ''; position: absolute; top: 0; right: 0; width: 4px; height: 100%; background: var(--crimson); }
+.chapter-num { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; color: var(--crimson); margin-bottom: var(--s3); }
+.chapter h3 { font-size: clamp(1.5rem, 4vw, 2.25rem); font-weight: 800; margin-bottom: var(--s4); color: var(--text); }
+.chapter p { font-size: 1.05rem; line-height: 1.9; color: var(--text-soft); max-width: 720px; }
+
+/* ===== TIMELINE ===== */
+.timeline { position: relative; padding: var(--s6) 0; }
+.timeline::before { content: ''; position: absolute; top: 0; bottom: 0; right: 30px; width: 2px; background: var(--border); }
+.timeline-item { position: relative; padding-right: 80px; margin-bottom: var(--s6); }
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-dot { position: absolute; right: 22px; top: 4px; width: 18px; height: 18px; border-radius: 50%; background: var(--crimson); border: 3px solid var(--bg); box-shadow: 0 0 0 1px var(--crimson); }
+.timeline-item:nth-child(2) .timeline-dot { background: var(--navy); box-shadow: 0 0 0 1px var(--navy); }
+.timeline-item:nth-child(3) .timeline-dot { background: var(--blue); box-shadow: 0 0 0 1px var(--blue); }
+.timeline-item:nth-child(4) .timeline-dot { background: var(--yellow); box-shadow: 0 0 0 1px var(--yellow); }
+.timeline-item:nth-child(5) .timeline-dot { background: var(--crimson-dark); box-shadow: 0 0 0 1px var(--crimson-dark); }
+.timeline-year { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; color: var(--crimson); margin-bottom: 4px; }
+.timeline-title { font-size: 1.125rem; font-weight: 700; margin-bottom: 6px; color: var(--text); }
+.timeline-desc { font-size: 0.9rem; color: var(--text-soft); line-height: 1.6; }
+
+/* ===== AUTHOR CARD ===== */
+.author-section {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: var(--s7);
+  align-items: stretch;
+}
+@media (max-width: 968px) { .author-section { grid-template-columns: 1fr; } }
+
+.author-photo-card {
+  position: relative;
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-card);
+  box-shadow: var(--shadow-brutal-lg);
+}
+
+.author-photo {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  display: block;
+  background: var(--gray-100);
+}
+
+.author-photo-fallback {
+  display: none;
+  width: 100%;
+  aspect-ratio: 4/5;
+  background: linear-gradient(135deg, var(--navy), var(--crimson));
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 5rem;
+  font-weight: 900;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: -0.04em;
+}
+
+.author-photo-meta {
+  padding: var(--s4) var(--s5);
+  border-top: 1.5px solid var(--border-strong);
+  background: var(--black);
+  color: var(--white);
+}
+.author-photo-meta .mono {
+  color: var(--crimson-light);
+  display: block;
+  margin-bottom: 4px;
+}
+.author-photo-meta strong {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.author-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--s5);
+}
+
+.author-header {
+  border-bottom: 2px solid var(--border-strong);
+  padding-bottom: var(--s4);
+}
+.author-name {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: var(--s2);
+}
+.author-title {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--crimson);
+  text-transform: uppercase;
+}
+
+.author-bio {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--text-soft);
+}
+
+.author-expertise {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+}
+.author-tag {
+  padding: 6px 14px;
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  background: var(--bg);
+  transition: all var(--t-fast);
+}
+.author-tag:hover {
+  background: var(--crimson);
+  color: var(--white);
+  border-color: var(--crimson);
+}
+
+.author-attribution {
+  padding: var(--s4);
+  background: var(--gray-50);
+  border-right: 4px solid var(--crimson);
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--text-soft);
+}
+[data-theme="dark"] .author-attribution { background: var(--gray-900); }
+.author-attribution strong { color: var(--text); }
+
+/* ===== CONTACT ===== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s5);
+}
+@media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+
+.contact-card {
+  display: block;
+  padding: var(--s6);
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  transition: all var(--t-base);
+  text-decoration: none;
+  color: var(--text);
+  position: relative;
+  overflow: hidden;
+}
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--crimson);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--t-base);
+}
+.contact-card:hover { transform: translate(-4px, -4px); box-shadow: var(--shadow-brutal-lg); }
+.contact-card:hover::before { transform: scaleX(1); }
+.contact-card.phone::before { background: var(--navy); }
+.contact-card.email::before { background: var(--blue); }
+
+.contact-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--s4);
+  font-size: 1.5rem;
+}
+.contact-card.phone .contact-icon-wrap { background: rgba(30,58,138,0.1); color: var(--navy); }
+.contact-card.email .contact-icon-wrap { background: rgba(37,99,235,0.1); color: var(--blue); }
+
+.contact-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: var(--s2);
+}
+.contact-value {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  direction: ltr;
+  text-align: left;
+  word-break: break-all;
+}
+.contact-card.email .contact-value { font-size: clamp(1rem, 2vw, 1.35rem); }
+
+.contact-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  margin-top: var(--s4);
+  padding-top: var(--s4);
+  border-top: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  width: 100%;
+}
+.contact-card.phone .contact-cta { color: var(--navy); }
+.contact-card.email .contact-cta { color: var(--blue); }
+
+.contact-note {
+  margin-top: var(--s5);
+  padding: var(--s4);
+  background: var(--gray-50);
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  text-align: center;
+  line-height: 1.7;
+}
+[data-theme="dark"] .contact-note { background: var(--gray-900); }
+.contact-note strong { color: var(--text); font-weight: 700; }
+
+/* ===== COPYRIGHT BOX ===== */
+.copyright-box {
+  margin-top: var(--s7);
+  padding: var(--s6);
+  background: var(--black);
+  color: var(--white);
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+}
+.copyright-box::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--crimson), var(--yellow));
+}
+.copyright-box .mono {
+  color: var(--crimson-light);
+  margin-bottom: var(--s3);
+  display: block;
+}
+.copyright-box p {
+  font-size: 0.9rem;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: var(--s3);
+}
+.copyright-box p:last-child { margin-bottom: 0; }
+.copyright-box strong { color: var(--white); font-weight: 700; }
+
+/* ===== FOOTER ===== */
+.footer { padding: var(--s8) 0 var(--s6); border-top: 1px solid var(--border); background: var(--gray-50); }
+[data-theme="dark"] .footer { background: var(--gray-900); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--s6); margin-bottom: var(--s7); }
+@media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+.footer-brand { display: flex; flex-direction: column; gap: var(--s3); }
+.footer-brand-logo { display: flex; align-items: center; gap: var(--s3); }
+.footer-desc { font-size: 0.875rem; color: var(--text-soft); line-height: 1.7; max-width: 320px; }
+.footer-col h4 { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-bottom: var(--s4); }
+.footer-col ul { display: flex; flex-direction: column; gap: var(--s2); }
+.footer-col a { font-size: 0.875rem; color: var(--text-soft); transition: color var(--t-fast); cursor: pointer; }
+.footer-col a:hover { color: var(--crimson); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: var(--s5); border-top: 1px solid var(--border); font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); gap: var(--s4); flex-wrap: wrap; }
+.footer-sig { color: var(--crimson); font-weight: 700; }
+
+/* ===== TABS ===== */
+.tab-nav { display: flex; gap: var(--s1); padding: 6px; background: var(--gray-100); border: 1px solid var(--border); border-radius: var(--radius-full); margin-bottom: var(--s6); overflow-x: auto; scrollbar-width: none; }
+[data-theme="dark"] .tab-nav { background: var(--gray-900); }
+.tab-nav::-webkit-scrollbar { display: none; }
+.tab-nav-btn { padding: 10px 20px; border-radius: var(--radius-full); font-family: var(--font-body); font-size: 0.85rem; font-weight: 500; color: var(--text-soft); white-space: nowrap; transition: all var(--t-fast); cursor: pointer; }
+.tab-nav-btn:hover { color: var(--text); background: var(--bg); }
+.tab-nav-btn.active { background: var(--black); color: var(--white); }
+[data-theme="dark"] .tab-nav-btn.active { background: var(--white); color: var(--black); }
+.tab-panel { display: none; animation: fadeUp 0.4s ease both; }
+.tab-panel.active { display: block; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ===== TOAST ===== */
+.toast { position: fixed; bottom: 24px; right: 24px; background: var(--navy); color: var(--white); padding: 14px 22px; border-radius: var(--radius); font-size: 0.875rem; font-weight: 500; z-index: 9999; transform: translateY(120%); opacity: 0; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 8px 32px rgba(0,0,0,0.2); border-right: 4px solid var(--yellow); }
+.toast.show { transform: translateY(0); opacity: 1; }
+
+/* ===== PRINT ===== */
+@media print {
+  .topbar, .hero-actions, .footer, .tab-nav, .icon-btn, .lang-btn, .toast, .contact-cta { display: none !important; }
+  body { background: white; color: black; }
+  .tab-panel { display: block !important; }
+  .tab-panel + .tab-panel { page-break-before: always; }
+  .author-photo { max-height: 400px; }
+}
+</style>
+</head>
+<body data-theme="light" data-lang="fa">
+
+<!-- ===== TOP BAR ===== -->
+<header class="topbar">
+  <div class="container">
+    <div class="topbar-inner">
+      <div class="brand">
+        <svg class="brand-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="50,5 95,25 95,75 50,95 5,75 5,25" fill="var(--text)"/>
+          <path d="M50 22 L74 33 L74 67 L50 78 L26 67 L26 33 Z" fill="var(--bg)"/>
+          <circle cx="50" cy="50" r="5" fill="var(--crimson)"/>
+          <line x1="50" y1="35" x2="50" y2="45" stroke="var(--text)" stroke-width="2"/>
+          <line x1="50" y1="55" x2="50" y2="65" stroke="var(--text)" stroke-width="2"/>
+        </svg>
+        <div class="brand-text">
+          <span class="brand-name">سپر هوشمند</span>
+          <span class="brand-tagline">SIMORGH SHIELD · v3.0</span>
+        </div>
+      </div>
+      <nav class="nav-main">
+        <button class="nav-btn active" data-tab="dashboard">داشبورد</button>
+        <button class="nav-btn" data-tab="document">سند قانونی</button>
+        <button class="nav-btn" data-tab="architecture">معماری</button>
+        <button class="nav-btn" data-tab="story">داستان</button>
+        <button class="nav-btn" data-tab="comparison">مقایسه</button>
+        <button class="nav-btn" data-tab="kpi">KPIها</button>
+        <button class="nav-btn" data-tab="author">پدیدآورنده</button>
+      </nav>
+      <div class="topbar-actions">
+        <button class="lang-btn" id="langToggle">EN</button>
+        <button class="icon-btn" id="themeToggle" aria-label="Theme">
+          <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+          </svg>
+        </button>
+        <button class="icon-btn" id="printBtn" aria-label="Print">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 6 2 18 2 18 9"/>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+            <rect x="6" y="14" width="12" height="8"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-meta">
+          <span class="hero-meta-line"></span>
+          <span class="hero-meta-text">DEFENSE DESIGN UNIT · [SHD-3.0]</span>
+        </div>
+        <h1 class="hero-mega">
+          <span class="word-1">سپر</span>
+          <span class="word-2">هوشمند</span>
+        </h1>
+        <p class="hero-desc">
+          دکترین ملی تاب‌آوری اقتصادی مبتنی بر عقلانیت دیجیتال، کلان‌داده و قراردادهای هوشمند.
+          از واکنش پس از بحران، به پیش‌بینی و خنثی‌سازی پیش از بحران.
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" data-tab="document">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            مشاهده سند قانونی
+          </button>
+          <button class="btn btn-navy" data-tab="author">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            درباره پدیدآورنده
+          </button>
+        </div>
+
+        <div class="hero-signature">
+          <div class="hero-signature-icon">پ.م</div>
+          <div class="hero-signature-info">
+            <span class="hero-signature-label">پیشنهاد راهبردی از</span>
+            <span class="hero-signature-name">پرویز معین</span>
+            <span class="hero-signature-title">استراتژیست اقتصادی · پدیدآورنده دکترین</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <span class="hero-visual-code">SYS.03</span>
+        <svg class="hero-shield" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="sGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#1e3a8a"/>
+              <stop offset="100%" stop-color="#0a0a0a"/>
+            </linearGradient>
+          </defs>
+          <path d="M100 10 L180 50 L180 130 Q180 190 100 230 Q20 190 20 130 L20 50 Z" fill="url(#sGrad)" stroke="#dc2626" stroke-width="2"/>
+          <path d="M100 40 L155 65 L155 125 Q155 170 100 200 Q45 170 45 125 L45 65 Z" fill="#ffffff" stroke="#0a0a0a" stroke-width="1.5"/>
+          <circle cx="100" cy="120" r="40" fill="none" stroke="#dc2626" stroke-width="1.5" opacity="0.5"/>
+          <circle cx="100" cy="120" r="25" fill="none" stroke="#2563eb" stroke-width="1.5" opacity="0.7"/>
+          <circle cx="100" cy="120" r="10" fill="#dc2626"/>
+          <line x1="100" y1="85" x2="100" y2="105" stroke="#0a0a0a" stroke-width="1.5"/>
+          <line x1="100" y1="135" x2="100" y2="155" stroke="#0a0a0a" stroke-width="1.5"/>
+          <line x1="65" y1="120" x2="85" y2="120" stroke="#0a0a0a" stroke-width="1.5"/>
+          <line x1="115" y1="120" x2="135" y2="120" stroke="#0a0a0a" stroke-width="1.5"/>
+        </svg>
+        <div class="hero-visual-label">
+          <span>PROTECT · PREDICT · PREVAIL</span>
+          <span>RAD-3σ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MAIN ===== -->
+<main class="container" style="padding-top: var(--s8); padding-bottom: var(--s8);">
+  <div class="tab-nav" role="tablist">
+    <button class="tab-nav-btn active" data-tab="dashboard">📊 داشبورد</button>
+    <button class="tab-nav-btn" data-tab="document">📜 سند قانونی</button>
+    <button class="tab-nav-btn" data-tab="architecture">🏗️ معماری</button>
+    <button class="tab-nav-btn" data-tab="story">📖 داستان</button>
+    <button class="tab-nav-btn" data-tab="comparison">📈 مقایسه</button>
+    <button class="tab-nav-btn" data-tab="kpi">🎯 KPIها</button>
+    <button class="tab-nav-btn" data-tab="author">👤 پدیدآورنده</button>
+  </div>
+
+  <!-- ===== TAB: DASHBOARD ===== -->
+  <div class="tab-panel active" id="tab-dashboard">
+    <div class="section-header">
+      <div class="section-header-left">
+        <span class="section-num">00</span>
+        <h2 class="section-title">داشبورد راهبردی</h2>
+      </div>
+      <span class="section-subtitle">EXECUTIVE OVERVIEW</span>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">System 01 · Response Time</div>
+        <div class="kpi-value">90<span class="unit">%</span></div>
+        <div class="kpi-desc">کاهش زمان واکنش به بحران اقتصادی</div>
+        <div class="kpi-footer"><span class="kpi-status">▲ OPTIMAL</span><span class="kpi-index">KPI-001</span></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">System 02 · Reserve Drain</div>
+        <div class="kpi-value">50<span class="unit">%</span></div>
+        <div class="kpi-desc">کاهش تخلیه ذخایر ارزی در بحران</div>
+        <div class="kpi-footer"><span class="kpi-status">▲ OPTIMAL</span><span class="kpi-index">KPI-002</span></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">System 03 · Transparency</div>
+        <div class="kpi-value">100<span class="unit">%</span></div>
+        <div class="kpi-desc">شفافیت تراکنش‌ها بر بستر بلاک‌چین</div>
+        <div class="kpi-footer"><span class="kpi-status">▲ OPTIMAL</span><span class="kpi-index">KPI-003</span></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">System 04 · Reaction Window</div>
+        <div class="kpi-value">&lt;48<span class="unit">h</span></div>
+        <div class="kpi-desc">پنجره زمانی واکنش به هشدار قرمز</div>
+        <div class="kpi-footer"><span class="kpi-status">▲ OPTIMAL</span><span class="kpi-index">KPI-004</span></div>
+      </div>
+    </div>
+
+    <div style="height: var(--s7);"></div>
+
+    <div class="section-header">
+      <div class="section-header-left">
+        <span class="section-num">01</span>
+        <h2 class="section-title">مقایسه پارادایمی</h2>
+      </div>
+      <span class="section-subtitle">PARADIGM SHIFT</span>
+    </div>
+
+    <div class="comparison-grid">
+      <div class="comp-side old">
+        <div class="comp-side-header">
+          <span class="comp-side-num">01</span>
+          <span class="comp-side-title">پارادایم فعلی</span>
+        </div>
+        <ul class="comp-list">
+          <li class="comp-item"><span class="comp-item-icon old">×</span> واکنش پس از بحران</li>
+          <li class="comp-item"><span class="comp-item-icon old">×</span> دستور اداری و مداخله مستقیم</li>
+          <li class="comp-item"><span class="comp-item-icon old">×</span> داده‌های ماهانه و تأخیری</li>
+          <li class="comp-item"><span class="comp-item-icon old">×</span> تصمیم‌گیری جزیره‌ای</li>
+          <li class="comp-item"><span class="comp-item-icon old">×</span> امدادگرایی غیرهدفمند</li>
+          <li class="comp-item"><span class="comp-item-icon old">×</span> پاسخگویی مبهم</li>
+        </ul>
+      </div>
+      <div class="comp-arrow">⟶</div>
+      <div class="comp-side new">
+        <div class="comp-side-header">
+          <span class="comp-side-num">02</span>
+          <span class="comp-side-title">پارادایم سپر هوشمند</span>
+        </div>
+        <ul class="comp-list">
+          <li class="comp-item"><span class="comp-item-icon new">✓</span> پیش‌بینی و خنثی‌سازی پیش از بحران</li>
+          <li class="comp-item"><span class="comp-item-icon new">✓</span> قرارداد هوشمند خوداجرا</li>
+          <li class="comp-item"><span class="comp-item-icon new">✓</span> پایش لحظه‌ای ۵۰ شاخص</li>
+          <li class="comp-item"><span class="comp-item-icon new">✓</span> شورای یکپارچه فرابخشی</li>
+          <li class="comp-item"><span class="comp-item-icon new">✓</span> تزریق هدفمند به بنگاه‌های مولد</li>
+          <li class="comp-item"><span class="comp-item-icon new">✓</span> شفافیت رادیکال بر بلاک‌چین</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="height: var(--s7);"></div>
+
+    <div class="section-header">
+      <div class="section-header-left">
+        <span class="section-num">02</span>
+        <h2 class="section-title">توزیع محتوایی</h2>
+      </div>
+      <span class="section-subtitle">CONTENT METRICS</span>
+    </div>
+
+    <div class="progress-section">
+      <div class="progress-item">
+        <div class="progress-header">
+          <span class="progress-label">🟢 محتوای مشترک با نسخه اولیه</span>
+          <span class="progress-value">20%</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width:20%"></div></div>
+      </div>
+      <div class="progress-item">
+        <div class="progress-header">
+          <span class="progress-label">🔵 افزوده علمی (مستندسازی نظری)</span>
+          <span class="progress-value">50%</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width:50%"></div></div>
+      </div>
+      <div class="progress-item">
+        <div class="progress-header">
+          <span class="progress-label">🟠 افزوده عملیاتی (چارچوب اجرایی)</span>
+          <span class="progress-value">30%</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width:30%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TAB: DOCUMENT ===== -->
+  <div class="tab-panel" id="tab-document">
+    <div class="section-header">
+      <div class="section-header-left">
+        <span class="section-num">01</span>
+        <h2 class="section-title">سند قانونی جامع</h2>
+      </div>
+      <span class="section-subtitle">LEGAL FRAMEWORK · 23 ARTICLES</span>
+    </div>
+
+    <div class="content-block">
+      <h3>فصل اول: کلیات (مواد ۱-۵)</h3>
+      <div class="article">
+        <div class="article-num">ماده ۱ · تعاریف</div>
+        <p><strong>سپر هوشمند اقتصادی:</strong> مجموعه‌ای یکپارچه از سامانه‌های پایش، هشدار، تصمیم‌گیری و اجرای خودکار که هدف آن پیش‌بینی، مهار و خنثی‌سازی شوک‌های اقتصادی است. <strong>هشدار قرمز:</strong> وضعیتی که در آن شاخص یا ترکیبی از شاخص‌ها از آستانه بحرانی فراتر رفته و نیازمند اقدام فوری است. <strong>قرارداد هوشمند:</strong> برنامه رایانه‌ای خوداجرا که بر بستر بلاک‌چین اجرا می‌شود.</p>
+      </div>
+      <div class="article">
+        <div class="article-num">ماده ۲ · اهداف</div>
+        <p>الف) پیش‌بینی و مهار شوک‌های اقتصادی پیش از وقوع بحران؛ ب) حفاظت از ذخایر ارزی و طلای کشور از تخلیه هیجانی؛ ج) شفاف‌سازی کامل تزریق نقدینگی و تراکنش‌های اقتصادی؛ د) مقاوم‌سازی اقتصاد در برابر تحریم‌های مالی و نفتی؛ ه) حمایت نظام‌مند از اقشار آسیب‌پذیر در زمان بحران.</p>
+      </div>
+      <div class="article">
+        <div class="article-num">ماده ۳ · دامنه شمول</div>
+        <p>این قانون، تمام نهادهای دولتی، عمومی غیردولتی و بخش خصوصی مرتبط با سیاست‌گذاری اقتصادی را در بر می‌گیرد.</p>
+      </div>
+      <div class="article">
+        <div class="article-num">ماده ۴ · اصول حاکم</div>
+        <p><strong>اصل پیش‌نگری:</strong> اقدام پیش از وقوع بحران، بر واکنش پس از آن اولویت دارد. <strong>اصل خوداجرایی:</strong> مکانیزم‌های خودکار، بر تصمیمات انسانی در زمان بحران اولویت دارند. <strong>اصل شفافیت:</strong> تمام تراکنش‌های مرتبط با ذخایر و نقدینگی، قابل حسابرسی عمومی است.</p>
+      </div>
+      <div class="article">
+        <div class="article-num">ماده ۵ · ساختار کلی</div>
+        <p>این قانون، مشتمل بر ۵ لایه عملیاتی است: پایش و هشدار، قراردادهای هوشمند، میان‌افزار و اوراکل‌ها، تزریق هدفمند، بیمه همبستگی ملی.</p>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3>فصل دوم: شورای عالی سپر هوشمند (مواد ۶-۱۰)</h3>
+      <div class="article">
+        <div class="article-num">ماده ۶ · ترکیب شورا</div>
+        <p>رئیس‌جمهور یا معاون اول، رئیس بانک مرکزی، وزیر اقتصاد، رئیس سازمان برنامه، رئیس کمیسیون اقتصادی مجلس، ۳ عضو دانشگاهی، ۲ نماینده بخش خصوصی.</p>
+      </div>
+      <div class="article">
+        <div class="article-num">ماده ۷ · وظایف شورا</div>
+        <p>تصویب آستانه‌های هشدار، تصویب پروتکل‌های اجرایی، تأیید بازگشایی ذخایر، تصویب اولویت‌های تزریق نقدینگی، نظارت بر مرکز پایش.</p>
+      </div>
+      <div class="article">
+        <div class="article-num">ماده ۸ · جلسات شورا</div>
+        <p>ماهی یک‌بار در حالت عادی. در شرایط هشدار نارنجی یا قرمز، جلسات فوق‌العاده هفتگی یا روزانه.</p>
+      </div>
+      <div class="article">
+        <div class="article-num">ماده ۹ · دبیرخانه</div>
+        <p>مستقر در مرکز پایش و هشدار ملی. مسئول تهیه دستور جلسات، تدوین گزارش‌ها، پیگیری مصوبات.</p>
+      </div>
+      <div class="article">
+        <div class="article-num">ماده ۱۰ · پاسخگویی</div>
+        <p>گزارش سالانه به مجلس شامل: تعداد هشدارها، اقدامات انجام‌شده، اثربخشی، چالش‌ها و پیشنهادات.</p>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3>فصل سوم: مرکز پایش و هشدار ملی (مواد ۱۱-۱۴)</h3>
+      <div class="article">
+        <div class="article-num">ماده ۱۱ · تشکیل مرکز</div>
+        <p>نهادی مستقل زیر نظر شورای عالی، مأموریت رصد لحظه‌ای شاخص‌های کلان و صدور هشدار سه‌سطحی.</p>
+      </div>
+      <div class="article">
+        <div class="article-num">ماده ۱۲ · وظایف</div>
+        <p>پایش ۵۰ شاخص، توسعه مدل‌های یادگیری ماشین، صدور هشدار، تهیه داشبورد، تحلیل سناریو، همکاری با اوراکل‌ها.</p>
+      </div>
+      <div class="article">
+        <div class="article-num">ماده ۱۳ · ساختار</div>
+        <p>معاونت داده، معاونت تحلیل، معاونت هشدار، معاونت فنی.</p>
+      </div>
+      <div class="article">
+        <div class="article-num">ماده ۱۴ · استقلال</div>
+        <p>مرکز در تصمیم‌گیری‌های فنی مستقل است. تغییر در آستانه‌ها، تنها با تصویب شورای عالی.</p>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3>فصل چهارم: لایه‌های عملیاتی (مواد ۱۵-۱۹)</h3>
+      <div class="article">
+        <div class="article-num">ماده ۱۵ · لایه ۱: پایش و هشدار</div>
+        <p>رصد لحظه‌ای ۵۰ شاخص. هشدار سه‌سطحی: زرد (انحراف ۱σ)، نارنجی (۲σ)، قرمز (۳σ). در هشدار قرمز، لایه‌های بعدی خودکار فعال می‌شوند.</p>
+      </div>
+      <div class="article">
+        <div class="article-num">ماده ۱۶ · لایه ۲: قرارداد هوشمند و قفل ذخایر</div>
+        <p>با هشدار قرمز، قرارداد هوشمند روی بلاک‌چین ملی فعال می‌شود. حداقل ۳۰٪ ذخایر ارزی و طلا قفل می‌شود. بازگشایی با تأیید سه‌جانبه.</p>
+      </div>
+      <div class="article">
+        <div class="article-num">ماده ۱۷ · لایه ۳: میان‌افزار و اوراکل</div>
+        <p>شبکه اوراکل‌های تخصصی از بانک مرکزی، گمرک، مرکز آمار، بورس، وزارت صمت، اتاق بازرگانی. تأیید داده از حداقل ۳ منبع مستقل.</p>
+      </div>
+      <div class="article">
+        <div class="article-num">ماده ۱۸ · لایه ۴: تزریق هوشمند</div>
+        <p>تزریق فقط به بنگاه‌های واجد شرایط: سهم در زنجیره تأمین، اشتغال‌زایی، صادرات غیرنفتی، بهره‌وری بالا، عدم وابستگی به رانت. مرحله‌ای و مشروط به عملکرد.</p>
+      </div>
+      <div class="article">
+        <div class="article-num">ماده ۱۹ · لایه ۵: بیمه همبستگی ملی</div>
+        <p>صندوق زیر نظر شورای عالی. منابع: ۵٪ صادرات نفتی + مشارکت داوطلبانه + کمک بین‌المللی + درآمد مبارزه با فساد. جامعه هدف: کم‌درآمد، بازنشسته، کارگر روزمزد، زنان سرپرست، مناطق محروم.</p>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3>فصل پنجم: نظارت و ارزیابی (مواد ۲۰-۲۳)</h3>
+      <div class="article">
+        <div class="article-num">ماده ۲۰ · حسابرسی مستقل</div>
+        <p>سازمان بازرسی کل کشور یا نهاد تعیین‌شده توسط مجلس، موظف به حسابرسی سالانه عملکرد نظام سپر هوشمند.</p>
+      </div>
+      <div class="article">
+        <div class="article-num">ماده ۲۱ · شاخص‌های کلیدی عملکرد</div>
+        <p>زمان شناسایی بحران &lt; ۱ هفته؛ زمان واکنش &lt; ۴۸ ساعت؛ تخلیه ذخایر &lt; ۱۰٪؛ تورم بحران &lt; ۲۰٪؛ پوشش بیمه‌ای &gt; ۸۰٪؛ شفافیت تراکنش ۱۰۰٪.</p>
+      </div>
+      <div class="article">
+        <div class="article-num">ماده ۲۲ · گزارش‌دهی به مجلس</div>
+        <p>شورای عالی هر شش ماه گزارش عملکرد به مجلس ارائه می‌کند.</p>
+      </div>
+      <div class="article">
+        <div class="article-num">ماده ۲۳ · بازنگری قانون</div>
+        <p>هر ۵ سال یک‌بار با پیشنهاد شورای عالی یا یک‌سوم نمایندگان مجلس.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TAB: ARCHITECTURE ===== -->
+  <div class="tab-panel" id="tab-architecture">
+    <div class="section-header">
+      <div class="section-header-left">
+        <span class="section-num">02</span>
+        <h2 class="section-title">معماری ۵ لایه</h2>
+      </div>
+      <span class="section-subtitle">LAYERED ARCHITECTURE</span>
+    </div>
+
+    <div class="layers-grid">
+      <div class="layer-card">
+        <div class="layer-num">01</div>
+        <div class="layer-info">
+          <h4>پایش و هشدار زودهنگام</h4>
+          <p>رصد لحظه‌ای ۵۰ شاخص کلان اقتصادی با الگوریتم‌های LSTM و Random Forest. صدور هشدار سه‌سطحی: زرد، نارنجی، قرمز.</p>
+        </div>
+        <div class="layer-tag">L1 · PISHBINI</div>
+      </div>
+      <div class="layer-card">
+        <div class="layer-num">02</div>
+        <div class="layer-info">
+          <h4>قرارداد هوشمند و قفل ذخایر</h4>
+          <p>فعال‌سازی خودکار قرارداد هوشمند روی بلاک‌چین ملی در آستانه هشدار قرمز. قفل حداقل ۳۰٪ ذخایر ارزی و طلا.</p>
+        </div>
+        <div class="layer-tag">L2 · GHOFL</div>
+      </div>
+      <div class="layer-card">
+        <div class="layer-num">03</div>
+        <div class="layer-info">
+          <h4>میان‌افزار و اوراکل‌ها</h4>
+          <p>شبکه اوراکل‌های تخصصی از ۶ منبع معتبر. تأیید داده از حداقل ۳ منبع مستقل با پروتکل اجماع.</p>
+        </div>
+        <div class="layer-tag">L3 · ORAKEL</div>
+      </div>
+      <div class="layer-card">
+        <div class="layer-num">04</div>
+        <div class="layer-info">
+          <h4>تزریق نقدینگی هوشمند</h4>
+          <p>حمایت مرحله‌ای و مشروط به عملکرد از بنگاه‌های مولد و استراتژیک. تمام تراکنش‌ها روی بلاک‌چین ثبت می‌شود.</p>
+        </div>
+        <div class="layer-tag">L4 · TAZRIGH</div>
+      </div>
+      <div class="layer-card">
+        <div class="layer-num">05</div>
+        <div class="layer-info">
+          <h4>بیمه همبستگی ملی</h4>
+          <p>صندوق بیمه مبتنی بر اصول تکافل. جبران خسارت اقشار آسیب‌پذیر در بحران. فعال‌سازی خودکار با هشدار قرمز.</p>
+        </div>
+        <div class="layer-tag">L5 · HAMBASTEGI</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TAB: STORY ===== -->
+  <div class="tab-panel" id="tab-story">
+    <div class="section-header">
+      <div class="section-header-left">
+        <span class="section-num">03</span>
+        <h2 class="section-title">داستان تغییر پارادایم</h2>
+      </div>
+      <span class="section-subtitle">NARRATIVE · 5 CHAPTERS</span>
+    </div>
+
+    <div class="chapter">
+      <div class="chapter-num">CHAPTER 01 / 05</div>
+      <h3>چرا پارادایم فعلی شکست خورد؟</h3>
+      <p>تصور کنید در سال ۱۳۹۷ هستید. بازار ارز در ۷۲ ساعت ۱۵۰٪ جهش کرد. اولین جلسه اضطراری بانک مرکزی ۹ روز بعد تشکیل شد. دولت برای مهار بحران، میلیاردها دلار ارز تزریق کرد. نتیجه: ذخایر تخلیه شد، تورم جهش کرد، و بحران بعدی بزرگ‌تر آمد. این، داستان یک پارادایم شکست‌خورده است.</p>
+    </div>
+    <div style="height: var(--s5);"></div>
+    <div class="chapter">
+      <div class="chapter-num">CHAPTER 02 / 05</div>
+      <h3>سه پیش‌فرض نادرست</h3>
+      <p>پارادایم فعلی بر سه پیش‌فرض بنیادین استوار است که هر سه نادرست هستند: <strong>یک)</strong> بحران‌ها غیرقابل پیش‌بینی‌اند — در حالی که ۸۰٪ بحران‌های ارزی ایران نشانه‌های پیش‌هشدار ۳-۶ ماهه داشته‌اند. <strong>دو)</strong> دولت باید به‌موقع واکنش نشان دهد — در حالی که سرعت بازار میلی‌ثانیه است و سرعت دولت ماه. <strong>سه)</strong> مداخله مستقیم = کنترل — در حالی که مداخله دستوری خود عامل بی‌ثباتی است.</p>
+    </div>
+    <div style="height: var(--s5);"></div>
+    <div class="chapter">
+      <div class="chapter-num">CHAPTER 03 / 05</div>
+      <h3>پارادایم جایگزین</h3>
+      <p>سپر هوشمند، پارادایم جدیدی را پیشنهاد می‌دهد: <strong>حاکمیت پیش‌نگر مبتنی بر داده</strong>. در این پارادایم، به‌جای واکنش پس از بحران، بحران پیش‌بینی و خنثی می‌شود. به‌جای دستور اداری، قرارداد هوشمند خوداجرا عمل می‌کند. به‌جای داده‌های ماهانه، پایش لحظه‌ای ۵۰ شاخص انجام می‌شود. به‌جای تصمیم‌گیری جزیره‌ای، شورای یکپارچه فرابخشی تصمیم می‌گیرد.</p>
+    </div>
+    <div style="height: var(--s5);"></div>
+    <div class="chapter">
+      <div class="chapter-num">CHAPTER 04 / 05</div>
+      <h3>معماری ۵ لایه</h3>
+      <p>سپر هوشمند بر پنج لایه عملیاتی استوار است که به‌صورت زنجیره‌ای عمل می‌کنند: پایش و هشدار زودهنگام، قفل خودکار ذخایر، اعتبارسنجی داده از اوراکل‌ها، تزریق هدفمند به بنگاه‌های مولد، و بیمه همبستگی ملی. هر لایه، مکمل لایه دیگر است و در آستانه هشدار قرمز، همه لایه‌ها به‌صورت خودکار فعال می‌شوند.</p>
+    </div>
+    <div style="height: var(--s5);"></div>
+    <div class="chapter">
+      <div class="chapter-num">CHAPTER 05 / 05</div>
+      <h3>نظریه تغییر: سه موج</h3>
+      <p>رهبری این تغییر پارادایم، در سه موج انجام می‌شود: <strong>موج اول (۰-۶ ماه):</strong> مشروعیت‌سازی — جلب حمایت رهبری و نخبگان. <strong>موج دوم (۶-۲۴ ماه):</strong> نهادسازی — تشکیل شورا، مرکز پایش، صندوق تاب‌آوری. <strong>موج سوم (۲۴-۶۰ ماه):</strong> تعمیم — پیاده‌سازی کامل ۵ لایه و صادرات الگو به کشورهای منطقه.</p>
+    </div>
+
+    <div style="height: var(--s7);"></div>
+
+    <div class="section-header">
+      <div class="section-header-left">
+        <span class="section-num">04</span>
+        <h2 class="section-title">نقشه راه ۵ ساله</h2>
+      </div>
+      <span class="section-subtitle">5-YEAR ROADMAP</span>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">سال ۱ · ۱۴۰۳-۱۴۰۴</div>
+        <div class="timeline-title">مشروعیت‌سازی و قانون‌گذاری</div>
+        <div class="timeline-desc">تدوین سند راهبردی، ارائه به رهبری، تصویب قانون در مجلس، تشکیل شورای عالی سپر هوشمند.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">سال ۲ · ۱۴۰۴-۱۴۰۵</div>
+        <div class="timeline-title">پایلوت لایه ۱ و ۲</div>
+        <div class="timeline-desc">راه‌اندازی مرکز پایش و هشدار ملی، استقرار سیستم هشدار سه‌سطحی، آغاز پایلوت قرارداد هوشمند قفل ذخایر.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">سال ۳ · ۱۴۰۵-۱۴۰۶</div>
+        <div class="timeline-title">گسترش لایه ۳ و ۴</div>
+        <div class="timeline-desc">استقرار شبکه اوراکل‌های تخصصی، راه‌اندازی صندوق تاب‌آوری ملی، آغاز تزریق هدفمند به بنگاه‌های استراتژیک.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">سال ۴ · ۱۴۰۶-۱۴۰۷</div>
+        <div class="timeline-title">تکمیل لایه ۵ و ارزیابی</div>
+        <div class="timeline-desc">راه‌اندازی صندوق بیمه همبستگی ملی، ارزیابی مستقل عملکرد، اصلاحات مبتنی بر داده.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">سال ۵ · ۱۴۰۷-۱۴۰۸</div>
+        <div class="timeline-title">تعمیم و صادرات الگو</div>
+        <div class="timeline-desc">پیاده‌سازی کامل ۵ لایه در سطح ملی، انتشار تجربه، همکاری منطقه‌ای برای صادرات الگو.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TAB: COMPARISON ===== -->
+  <div class="tab-panel" id="tab-comparison">
+    <div class="section-header">
+      <div class="section-header-left">
+        <span class="section-num">05</span>
+        <h2 class="section-title">جدول مقایسه‌ای جامع</h2>
+      </div>
+      <span class="section-subtitle">COMPREHENSIVE COMPARISON</span>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>موضوع</th>
+            <th>نسخه اولیه</th>
+            <th>نسخه علمی-پژوهشی</th>
+            <th>وضعیت</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>وابستگی به نفت</td><td>✓</td><td>✓</td><td><span class="tag tag-green">اشتراک</span></td></tr>
+          <tr><td>نوسانات ارزی</td><td>✓</td><td>✓</td><td><span class="tag tag-green">اشتراک</span></td></tr>
+          <tr><td>تحریم</td><td>✓</td><td>✓</td><td><span class="tag tag-green">اشتراک</span></td></tr>
+          <tr><td>سیاست‌های واکنشی</td><td>✓</td><td>✓</td><td><span class="tag tag-green">اشتراک</span></td></tr>
+          <tr><td>سپر هوشمند</td><td>✓</td><td>✓</td><td><span class="tag tag-green">اشتراک</span></td></tr>
+          <tr><td>۵ مرحله/لایه</td><td>✓</td><td>✓</td><td><span class="tag tag-green">اشتراک</span></td></tr>
+          <tr><td>تاب‌آوری اقتصادی</td><td>—</td><td>✓</td><td><span class="tag tag-blue">جدید علمی</span></td></tr>
+          <tr><td>حاکمیت داده</td><td>—</td><td>✓</td><td><span class="tag tag-blue">جدید علمی</span></td></tr>
+          <tr><td>قرارداد هوشمند</td><td>مقدماتی</td><td>تفصیلی</td><td><span class="tag tag-blue">تعمیق</span></td></tr>
+          <tr><td>بلاک‌چین</td><td>مقدماتی</td><td>تفصیلی</td><td><span class="tag tag-blue">تعمیق</span></td></tr>
+          <tr><td>LSTM</td><td>اشاره</td><td>تفصیلی</td><td><span class="tag tag-blue">تعمیق</span></td></tr>
+          <tr><td>مبادله پایاپای</td><td>✓</td><td>✓ + ادبیات</td><td><span class="tag tag-blue">تعمیق</span></td></tr>
+          <tr><td>بیمه همبستگی</td><td>✓</td><td>✓ + تکافل</td><td><span class="tag tag-blue">تعمیق</span></td></tr>
+          <tr><td>مرور ادبیات</td><td>—</td><td>✓</td><td><span class="tag tag-navy">جدید</span></td></tr>
+          <tr><td>چارچوب عملیاتی</td><td>—</td><td>✓</td><td><span class="tag tag-navy">جدید</span></td></tr>
+          <tr><td>ارزیابی و KPI</td><td>—</td><td>✓</td><td><span class="tag tag-navy">جدید</span></td></tr>
+          <tr><td>ماتریس ریسک</td><td>—</td><td>✓</td><td><span class="tag tag-navy">جدید</span></td></tr>
+          <tr><td>منابع علمی</td><td>—</td><td>۶ منبع</td><td><span class="tag tag-navy">جدید</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== TAB: KPI ===== -->
+  <div class="tab-panel" id="tab-kpi">
+    <div class="section-header">
+      <div class="section-header-left">
+        <span class="section-num">06</span>
+        <h2 class="section-title">شاخص‌های کلیدی عملکرد</h2>
+      </div>
+      <span class="section-subtitle">KEY PERFORMANCE INDICATORS</span>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Time to Detect Crisis</div>
+        <div class="kpi-value">&lt;1<span class="unit">هفته</span></div>
+        <div class="kpi-desc">زمان شناسایی بحران (وضعیت فعلی: ۳-۶ ماه)</div>
+        <div class="kpi-footer"><span class="kpi-status">▲ TARGET</span><span class="kpi-index">KPI-01</span></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Reaction Time</div>
+        <div class="kpi-value">&lt;48<span class="unit">ساعت</span></div>
+        <div class="kpi-desc">زمان واکنش به بحران (وضعیت فعلی: ۱-۳ ماه)</div>
+        <div class="kpi-footer"><span class="kpi-status">▲ TARGET</span><span class="kpi-index">KPI-02</span></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Reserve Drain</div>
+        <div class="kpi-value">&lt;10<span class="unit">%</span></div>
+        <div class="kpi-desc">تخلیه ذخایر در بحران (وضعیت فعلی: ۳۰-۵۰٪)</div>
+        <div class="kpi-footer"><span class="kpi-status">▲ TARGET</span><span class="kpi-index">KPI-03</span></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Crisis Inflation</div>
+        <div class="kpi-value">&lt;20<span class="unit">%</span></div>
+        <div class="kpi-desc">نرخ تورم در بحران (وضعیت فعلی: ۴۰-۶۰٪)</div>
+        <div class="kpi-footer"><span class="kpi-status">▲ TARGET</span><span class="kpi-index">KPI-04</span></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Insurance Coverage</div>
+        <div class="kpi-value">80<span class="unit">%</span></div>
+        <div class="kpi-desc">پوشش بیمه‌ای آسیب‌پذیران (وضعیت فعلی: ۲۰٪)</div>
+        <div class="kpi-footer"><span class="kpi-status">▲ TARGET</span><span class="kpi-index">KPI-05</span></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Transparency</div>
+        <div class="kpi-value">100<span class="unit">%</span></div>
+        <div class="kpi-desc">شفافیت تراکنش‌ها (وضعیت فعلی: ۳۰٪)</div>
+        <div class="kpi-footer"><span class="kpi-status">▲ TARGET</span><span class="kpi-index">KPI-06</span></div>
+      </div>
+    </div>
+
+    <div style="height: var(--s7);"></div>
+
+    <div class="section-header">
+      <div class="section-header-left">
+        <span class="section-num">07</span>
+        <h2 class="section-title">مدل هزینه-فایده</h2>
+      </div>
+      <span class="section-subtitle">COST-BENEFIT MODEL</span>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>هزینه‌ها</th>
+            <th>مبلغ سالانه</th>
+            <th>فایده‌ها</th>
+            <th>مبلغ سالانه</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>سرمایه‌گذاری زیرساخت</td>
+            <td>۲ میلیارد دلار (یک‌بار)</td>
+            <td>کاهش تخلیه ذخایر</td>
+            <td>۵-۷ میلیارد دلار</td>
+          </tr>
+          <tr>
+            <td>نگهداری سیستم</td>
+            <td>۲۰۰ میلیون دلار</td>
+            <td>کاهش تورم بحران</td>
+            <td>۳-۴ میلیارد دلار</td>
+          </tr>
+          <tr>
+            <td>آموزش نیروی انسانی</td>
+            <td>۵۰ میلیون دلار</td>
+            <td>افزایش شفافیت</td>
+            <td>غیرقابل کمّی‌سازی</td>
+          </tr>
+          <tr>
+            <td>قانون‌گذاری</td>
+            <td>۱۰ میلیون دلار</td>
+            <td>بهبود تاب‌آوری</td>
+            <td>بلندمدت</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top: var(--s6); padding: var(--s6); background: var(--gray-50); border-right: 4px solid var(--crimson); border-radius: var(--radius);">
+      <div class="mono" style="color: var(--crimson); margin-bottom: var(--s3);">RESULT · نتیجه</div>
+      <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-soft);">
+        با فرض کاهش ۵۰٪ در تخلیه ذخایر و ۳۰٪ در تورم بحران، <strong style="color: var(--text);">دوره بازگشت سرمایه کمتر از ۶ ماه</strong> خواهد بود.
+        ROI پنج‌ساله: <strong style="color: var(--crimson);">۱۲۰۰٪</strong>.
+      </p>
+    </div>
+  </div>
+
+  <!-- ===== TAB: AUTHOR ===== -->
+  <div class="tab-panel" id="tab-author">
+    <div class="section-header">
+      <div class="section-header-left">
+        <span class="section-num">08</span>
+        <h2 class="section-title">پدیدآورنده و استراتژیست</h2>
+      </div>
+      <span class="section-subtitle">AUTHOR & STRATEGIST</span>
+    </div>
+
+    <div class="author-section">
+      <div class="author-photo-card">
+        <img 
+          src="parviz-moin.jpg" 
+          alt="پرویز معین" 
+          class="author-photo"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <div class="author-photo-fallback">پ.م</div>
+        <div class="author-photo-meta">
+          <span class="mono">Author · Creator · 1403</span>
+          <strong>PARVIZ MOIN</strong>
+        </div>
+      </div>
+
+      <div class="author-content">
+        <div>
+          <div class="author-header">
+            <h3 class="author-name">پرویز معین</h3>
+            <div class="author-title">استراتژیست اقتصادی · پدیدآورنده دکترین سپر هوشمند</div>
+          </div>
+
+          <p class="author-bio">
+            طراح و معمار دکترین ملی تاب‌آوری اقتصادی مبتنی بر عقلانیت دیجیتال، کلان‌داده و قراردادهای هوشمند.
+            تمرکز پژوهشی بر تلفیق سه حوزه: ادبیات تاب‌آوری اقتصادی، فناوری‌های بلاک‌چین، و مکانیزم‌های مالی اسلامی
+            برای مقاوم‌سازی ساختاری اقتصاد ایران در برابر شوک‌های برون‌زا.
+          </p>
+
+          <div style="height: var(--s4);"></div>
+
+          <div class="author-expertise">
+            <span class="author-tag">اقتصاد کلان</span>
+            <span class="author-tag">حاکمیت داده</span>
+            <span class="author-tag">قرارداد هوشمند</span>
+            <span class="author-tag">بلاک‌چین</span>
+            <span class="author-tag">تاب‌آوری اقتصادی</span>
+            <span class="author-tag">سیاست‌گذاری پیش‌نگر</span>
+          </div>
+
+          <div style="height: var(--s5);"></div>
+
+          <div class="author-attribution">
+            <strong>📌 این سند و تمام محتوای آن</strong>، اثر خلاقانه و فکری پدیدآورنده محسوب می‌شود و تحت حمایت
+            قانون حمایت حقوق مؤلفان و مصنفان و هنرمندان (مصوب ۱۳۴۸) و کنوانسیون برن قرار دارد.
+          </div>
+        </div>
+
+        <div>
+          <button class="btn btn-primary" data-tab="document">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            مشاهده سند قانونی
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div style="height: var(--s7);"></div>
+
+    <div class="section-header">
+      <div class="section-header-left">
+        <span class="section-num">09</span>
+        <h2 class="section-title">تماس مستقیم</h2>
+      </div>
+      <span class="section-subtitle">DIRECT CONTACT</span>
+    </div>
+
+    <div class="contact-grid">
+      <a href="tel:+989133180172" class="contact-card phone">
+        <div class="contact-icon-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <div class="contact-label">تلفن مستقیم</div>
+        <div class="contact-value">+98 913 318 0172</div>
+        <div class="contact-cta">
+          تماس مستقیم
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </a>
+
+      <a href="mailto:drparvizmoin@gmail.com" class="contact-card email">
+        <div class="contact-icon-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div class="contact-label">ایمیل رسمی</div>
+        <div class="contact-value">drparvizmoin@gmail.com</div>
+        <div class="contact-cta">
+          ارسال ایمیل
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </a>
+    </div>
+
+    <div class="contact-note">
+      <strong>درخواست‌ها:</strong> همکاری راهبردی · مشاوره اقتصادی · سخنرانی · ارائه به نهادهای حاکمیتی
+    </div>
+
+    <div class="copyright-box">
+      <span class="mono">© COPYRIGHT · حق مؤلف</span>
+      <p>
+        <strong>© ۱۴۰۳ · پرویز معین · تمامی حقوق محفوظ است.</strong>
+      </p>
+      <p>
+        این سند و محتوای آن، اثر خلاقانه و فکری پدیدآورنده محسوب می‌شود و تحت حمایت قانون حمایت حقوق مؤلفان و مصنفان و هنرمندان
+        (مصوب ۱۳۴۸) و کنوانسیون برن قرار دارد. هرگونه استفاده، بازتولید، اقتباس یا انتشار، بدون اجازه کتبی پدیدآورنده ممنوع است.
+      </p>
+      <p style="font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; color: var(--yellow); margin-top: var(--s4);">
+        DOCUMENT ID: SHD-IR-1403-001 · AUTHOR: PARVIZ MOIN · VERSION: 3.0
+      </p>
+    </div>
+  </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-logo">
+          <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="50,5 95,25 95,75 50,95 5,75 5,25" fill="var(--text)"/>
+            <path d="M50 22 L74 33 L74 67 L50 78 L26 67 L26 33 Z" fill="var(--bg)"/>
+            <circle cx="50" cy="50" r="5" fill="var(--crimson)"/>
+          </svg>
+          <div>
+            <div style="font-weight: 800; font-size: 1.125rem;">سپر هوشمند</div>
+            <div class="mono" style="color: var(--text-muted); font-size: 0.65rem;">SIMORGH SHIELD · v3.0</div>
+          </div>
+        </div>
+        <p class="footer-desc">
+          دکترین ملی تاب‌آوری اقتصادی مبتنی بر عقلانیت دیجیتال، کلان‌داده و قراردادهای هوشمند. از واکنش به پیش‌بینی.
+        </p>
+        <p style="font-size: 0.8rem; color: var(--crimson); font-weight: 600; margin-top: var(--s2);">
+          پدیدآورنده: پرویز معین
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a data-tab="dashboard">داشبورد</a></li>
+          <li><a data-tab="document">سند قانونی</a></li>
+          <li><a data-tab="architecture">معماری</a></li>
+          <li><a data-tab="kpi">KPIها</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a data-tab="story">مرور روایت</a></li>
+          <li><a data-tab="comparison">جدول مقایسه</a></li>
+          <li><a data-tab="author">درباره پدیدآورنده</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+989133180172">۰۹۱۳۳۱۸۰۱۷۲</a></li>
+          <li><a href="mailto:drparvizmoin@gmail.com">drparvizmoin@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© ۱۴۰۳ · پرویز معین · تمامی حقوق محفوظ است</span>
+      <span class="footer-sig">AUTHOR · CREATOR · STRATEGIST</span>
+      <span>BUILD 3.0.0</span>
+    </div>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+(function() {
+  'use strict';
+
+  const state = {
+    theme: localStorage.getItem('sper-theme') || 'light',
+    lang: localStorage.getItem('sper-lang') || 'fa'
+  };
+
+  const $ = (sel) => document.querySelector(sel);
+  const $$ = (sel) => document.querySelectorAll(sel);
+
+  function applyTheme(theme) {
+    document.body.setAttribute('data-theme', theme);
+    state.theme = theme;
+    localStorage.setItem('sper-theme', theme);
+    const icon = $('#themeIcon');
+    if (theme === 'dark') {
+      icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+    } else {
+      icon.innerHTML = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+    }
+  }
+
+  function switchTab(tabId) {
+    $$('.tab-panel').forEach(p => p.classList.remove('active'));
+    const target = $('#tab-' + tabId);
+    if (target) target.classList.add('active');
+    $$('.tab-nav-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tabId));
+    $$('.nav-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tabId));
+    const main = document.querySelector('main');
+    if (main) {
+      const y = main.getBoundingClientRect().top + window.scrollY - 100;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  }
+
+  let toastTimer;
+  function showToast(msg) {
+    const toast = $('#toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 2500);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    applyTheme(state.theme);
+    if (state.lang !== 'fa') {
+      document.body.setAttribute('data-lang', state.lang);
+      $('#langToggle').textContent = state.lang === 'fa' ? 'EN' : 'FA';
+    }
+
+    $('#themeToggle').addEventListener('click', () => {
+      applyTheme(state.theme === 'light' ? 'dark' : 'light');
+      showToast(state.theme === 'dark' ? 'حالت تیره فعال شد' : 'حالت روشن فعال شد');
+    });
+
+    $('#langToggle').addEventListener('click', () => {
+      state.lang = state.lang === 'fa' ? 'en' : 'fa';
+      localStorage.setItem('sper-lang', state.lang);
+      document.body.setAttribute('data-lang', state.lang);
+      $('#langToggle').textContent = state.lang === 'fa' ? 'EN' : 'FA';
+      showToast(state.lang === 'fa' ? 'زبان فارسی فعال شد' : 'English activated');
+    });
+
+    $('#printBtn').addEventListener('click', () => window.print());
+
+    $$('[data-tab]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const tab = btn.dataset.tab;
+        if (tab && $('#tab-' + tab)) switchTab(tab);
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    $$('.kpi-card, .layer-card, .article, .chapter, .timeline-item, .author-photo-card, .contact-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+
+    console.log('%c🛡️ سپر هوشمند v3.0', 'color: #dc2626; font-size: 20px; font-weight: bold;');
+    console.log('%cپدیدآورنده: پرویز معین · drparvizmoin@gmail.com · ۰۹۱۳۳۱۸۰۱۷۲', 'color: #1e3a8a; font-size: 12px;');
+  });
+})();
+</script>
+
+</body>
+</html>
